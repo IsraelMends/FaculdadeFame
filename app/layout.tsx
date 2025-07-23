@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import {WhatsAppFloatButton} from "@/components/whatsapp_float_button";
 
 // Font: carregando com display: swap e usando variable corretamente
 const poppins = Poppins({
@@ -69,7 +70,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-br" className={poppins.variable}>
-        <body className="antialiased bg-white text-black">
+        <body className="antialiased bg-white text-black max-w-screen overflow-hidden">
         {children}
         </body>
         </html>

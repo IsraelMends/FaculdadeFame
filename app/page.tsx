@@ -1,6 +1,7 @@
 import {Header} from "@/components/header";
 import {Banner} from "@/components/banner";
 import {Carousel} from "@/components/carousel";
+import {WhatsAppFloatButton} from "@/components/whatsapp_float_button";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
             <Header />
             <Banner />
             <Carousel />
+            <WhatsAppFloatButton />
           </div>
   );
 }
