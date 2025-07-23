@@ -1,57 +1,77 @@
 import type { Metadata } from "next";
-import {Poppins} from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
+// Font: carregando com display: swap e usando variable corretamente
 const poppins = Poppins({
     variable: "--font-poppins",
     subsets: ["latin"],
-    weight: ["100","200","300","400","500","600","700","800","900"],
-})
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    display: "swap",
+});
 
+// Metadata otimizada
 export const metadata: Metadata = {
-  title: "FAME - Faculdade Mineira de Educação EaD",
-  description: "Site da faculdade Mineira de Educação EAD",
-  publisher: "Hostinger",
-  authors: [{
-      name: "RJ Digital",
-      url: "Empresa de marketing digital"
-  },
-      {
-      name: "FelipeFernandes777",
-      url: "https://github.com/FelipeFernandes777"
-  }],
-    icons: [
-        "localhost:3000/fame3.png"
+    title: "FAME - Faculdade Mineira de Educação EaD",
+    description: "Pós-graduação a distância com qualidade, flexibilidade e preço acessível.",
+    authors: [
+        { name: "RJ Digital", url: "https://rjdigital.com.br" },
+        { name: "Felipe Fernandes", url: "https://github.com/FelipeFernandes777" },
     ],
-    manifest: "https://site.com.br/manifest.json",
+    keywords: [
+        "Faculdade Mineira de Educação EaD",
+        "FAME",
+        "Faculdade EAD",
+        "Pós-graduação EAD",
+        "Educação a distância",
+        "Cursos online",
+        "Engenharia",
+        "Administração",
+    ],
+    category: "education",
+    generator: "Next.js",
+    applicationName: "FAME EaD",
+    creator: "RJ Digital",
+    publisher: "Hostinger",
+    referrer: "origin",
+    robots: {
+        index: true,
+        follow: true,
+    },
+    icons: {
+        icon: "/fame4.png",
+        apple: "/fame4.png",
+    },
+    manifest: "/manifest.json",
     openGraph: {
-      title: "FAME - Faculdade Mineda de Educação EAD",
-        description: "Sua pós graduação está aqui",
-        images: {
-          url: "fame1.png",
-            alt: "Logo da Faculdade"
-        },
+        title: "FAME - Faculdade Mineira de Educação EaD",
+        description: "Sua pós-graduação está aqui",
+        url: "https://site.com.br",
+        siteName: "FAME EaD",
+        images: [
+            {
+                url: "/fame1.png",
+                width: 800,
+                height: 600,
+                alt: "Logo da Faculdade",
+            },
+        ],
+        locale: "pt_BR",
         type: "website",
     },
-    keywords: ["Faculdade Mineira de Educação EaD", "EAD", "Faculdade Mineira", "Fame", "Pos graduação", "Pos graduacao", "Engenharia", "EAD", "Faculdade EAD"],
-    category: "Educacional",
-    generator: "NextJS",
-    robots: {index: true, follow: true},
-    referrer: "origin"
+    metadataBase: new URL("https://site.com.br"),
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-br">
-      <body
-        className={`${poppins} antialiased`}
-      >
+    return (
+        <html lang="pt-br" className={poppins.variable}>
+        <body className="antialiased bg-white text-black">
         {children}
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }
