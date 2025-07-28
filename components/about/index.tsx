@@ -13,7 +13,7 @@ import { AboutCard, AboutCardProps } from "@/components/about/about_card";
 export function About() {
 
     const autoplay = useRef(
-        Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+        Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
     );
 
     const [emblaRef] = useEmblaCarousel({ loop: true }, [autoplay.current]);
@@ -28,7 +28,7 @@ export function About() {
                 },
             },
             img: {
-                src: "/banner/students.jpg",
+                src: "/about/students.jpg",
                 alt: "Campus",
             },
         },
@@ -41,8 +41,47 @@ export function About() {
                 },
             },
             img: {
-                src: "/banner/students.jpg",
+                src: "/about/group_students.jpg",
                 alt: "Estudantes FAME",
+            },
+        },
+        {
+            cardAbsolute: {
+                title: { title: "Certificação Reconhecida" },
+                description: {
+                    description:
+                        "Ao concluir sua pós-graduação na FAME, você recebe um certificado com validade nacional e reconhecimento do MEC. Um diferencial no seu currículo que comprova sua qualificação e dedicação.",
+                },
+            },
+            img: {
+                src: "/about/certificated.jpg",
+                alt: "Certificado de Conclusão",
+            },
+        },
+        {
+            cardAbsolute: {
+                title: { title: "Educação a Distância de Qualidade" },
+                description: {
+                    description:
+                        "A FAME alia tecnologia e didática para entregar uma experiência EAD eficiente e envolvente. Estude onde e quando quiser, com acesso a materiais atualizados e suporte constante dos tutores.",
+                },
+            },
+            img: {
+                src: "/about/online_learning.jpg",
+                alt: "Aula online da FAME",
+            },
+        },
+        {
+            cardAbsolute: {
+                title: { title: "Corpo Docente Especializado" },
+                description: {
+                    description:
+                        "Nossos professores são mestres e doutores com ampla experiência acadêmica e de mercado. Você aprende com quem realmente entende e vive a prática profissional da área.",
+                },
+            },
+            img: {
+                src: "/about/teacher.jpg",
+                alt: "Professor da FAME",
             },
         },
     ];
