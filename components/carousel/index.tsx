@@ -4,7 +4,6 @@ import { CarrouselContainer } from "@/components/carousel/carousel_container";
 import { CarrouselTitle } from "@/components/carousel/carousel_title";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
 import { useCallback, useRef } from "react";
 import {CarouselCardSectionContainer} from "@/components/carousel/carousel_card_section_container";
 import {CarouselCard} from "@/components/carousel/carousel_card";
