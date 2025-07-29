@@ -1,22 +1,38 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
 
 import { AboutContainer } from "@/components/about/about_container";
 import { AboutTile } from "@/components/about/about_title";
 import { AboutDescription } from "@/components/about/about_description";
 import { AboutInfoContainer } from "@/components/about/about_info_container";
 import { AboutCard, AboutCardProps } from "@/components/about/about_card";
+import {ArrowBigLeft, ArrowBigRight} from "lucide-react";
 
 export function About() {
-
     const autoplay = useRef(
         Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
     );
 
-    const [emblaRef] = useEmblaCarousel({ loop: true }, [autoplay.current]);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay.current]);
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const scrollTo = (index: number) => {
+        if (emblaApi) emblaApi.scrollTo(index);
+    };
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        const onSelect = () => {
+            setSelectedIndex(emblaApi.selectedScrollSnap());
+        };
+
+        emblaApi.on("select", onSelect);
+        onSelect();
+    }, [emblaApi]);
 
     const aboutCards: AboutCardProps[] = [
         {
@@ -85,12 +101,15 @@ export function About() {
             },
         },
     ];
+
     return (
         <AboutContainer>
-            <AboutTile title={"Sobre a FAME"}/>
+            <AboutTile title="Sobre a FAME" />
             <AboutDescription
-                description={"Somente quando diferentes valores, experiências e perspectivas são confrontados com um " +
-                    "discurso livre e aberto, a educação pode ser verdadeiramente transformadora."}/>
+                description="Somente quando diferentes valores, experiências e perspectivas são confrontados com um discurso livre e aberto, a educação pode ser verdadeiramente transformadora."
+            />
+
+            {/* AboutInfoContainer contendo apenas o carrossel */}
             <AboutInfoContainer>
                 <div className="overflow-hidden w-full" ref={emblaRef}>
                     <div className="flex">
@@ -107,8 +126,38 @@ export function About() {
                     </div>
                 </div>
             </AboutInfoContainer>
-            <div className="w-full flex items-center justify-center mt-4">
+
+            {/* Dots e setas movidos para fora do AboutInfoContainer */}
+            <div className="flex flex-col items-center gap-4 mt-6">
+                {/* Indicadores (dots) */}
+                <div className="flex justify-center gap-2">
+                    {aboutCards.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => scrollTo(index)}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                selectedIndex === index ? "bg-green-600 scale-110" : "bg-gray-300"
+                            }`}
+                        />
+                    ))}
+                </div>
+
+                {/* Setas de navegação */}
+                <div className="flex justify-center gap-8">
+                    <button
+                        onClick={() => emblaApi?.scrollPrev()}
+                        className="text-2xl hover:scale-125 transition"
+                    >
+                        <ArrowBigLeft className="text-[#0e6b5b] h-8 w-8"/>
+                    </button>
+                    <button
+                        onClick={() => emblaApi?.scrollNext()}
+                        className="text-2xl hover:scale-125 transition"
+                    >
+                        <ArrowBigRight className="text-[#0e6b5b] h-8 w-8"/>
+                    </button>
+                </div>
             </div>
         </AboutContainer>
-    )
+    );
 }

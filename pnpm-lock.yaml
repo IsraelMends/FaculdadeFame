@@ -11,6 +11,12 @@ dependencies:
   embla-carousel-react:
     specifier: ^8.6.0
     version: 8.6.0(react@19.1.0)
+  lucide:
+    specifier: ^0.532.0
+    version: 0.532.0
+  lucide-react:
+    specifier: ^0.532.0
+    version: 0.532.0(react@19.1.0)
   next:
     specifier: 15.3.5
     version: 15.3.5(react-dom@19.1.0)(react@19.1.0)
@@ -2575,6 +2581,18 @@ packages:
     dependencies:
       js-tokens: 4.0.0
     dev: true
+
+  /lucide-react@0.532.0(react@19.1.0):
+    resolution: {integrity: sha512-HwmXOIZwuZ21wryFq0ZrwkjAMxI77+jLxLdNzWCiUa/Kf5ozkTFCWT6C1/yapP68uKgj8wlxxqnNCH1xo9NEpg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 19.1.0
+    dev: false
+
+  /lucide@0.532.0:
+    resolution: {integrity: sha512-uOmK4kCxoQ5vIaGV6stWIUbDUKRzAKeHZy+Mlrbdkf2cEW8P4C2Nir/F/uDQw5kAMEcCQPWd6fMKXqQw7Gp7TQ==}
+    dev: false
 
   /magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
