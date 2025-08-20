@@ -10,16 +10,11 @@ import {CarouselCard} from "@/components/carousel/carousel_card";
 
 export function Carousel() {
     const slideImages = [
-        { src: "/logo_faculeste.webp", alt: "Logo 1" },
-        { src: "/logo_faculeste.webp", alt: "Logo 2" },
-        { src: "/logo_faculeste.webp", alt: "Logo 3" },
-        { src: "/logo_faculeste.webp", alt: "Logo 4" },
-        { src: "/logo_faculeste.webp", alt: "Logo 5" },
-        { src: "/logo_faculeste.webp", alt: "Logo 6" },
-        { src: "/logo_faculeste.webp", alt: "Logo 6" },
-        { src: "/logo_faculeste.webp", alt: "Logo 6" },
-        { src: "/logo_faculeste.webp", alt: "Logo 6" },
-        { src: "/logo_faculeste.webp", alt: "Logo 6" },
+        { src: "/logo_faculeste.webp", alt: "Logo 1", title: "Faculeste" },
+        { src: "/logo_faculeste.webp", alt: "Logo 2", title: "EducaMinas" },
+        { src: "/logo_faculeste.webp", alt: "Logo 3", title: "Facuvale" },
+        { src: "/logo_faculeste.webp", alt: "Logo 4", title: "Educavale" },
+        { src: "/logo_faculeste.webp", alt: "Logo 5", title: "Faculdade Iguaçu" },
     ];
 
     const autoplay = useRef(
@@ -41,10 +36,10 @@ export function Carousel() {
     return (
         <CarrouselContainer>
             <CarrouselTitle />
-            <CarouselCardSectionContainer ref={emblaRef}>
-                <div className="flex">
-                    {slideImages.map((image, index) => (
-                        <CarouselCard {...image} key={index}/>
+            <CarouselCardSectionContainer>
+                <div className="flex w-full items-center justify-center">
+                    {slideImages.map((props, index) => (
+                        <CarouselCard {...props} key={index}/>
                     ))}
                 </div>
             </CarouselCardSectionContainer>

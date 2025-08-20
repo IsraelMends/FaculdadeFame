@@ -3,6 +3,7 @@ import {Banner} from "@/components/banner";
 import {Carousel} from "@/components/carousel";
 import {WhatsAppFloatButton} from "@/components/whatsapp_float_button";
 import {About} from "@/components/about";
+import {Footer} from "@/components/footer";
 
 export default function Home() {
     return (
@@ -12,6 +13,7 @@ export default function Home() {
             <About/>
             <Carousel/>
             <WhatsAppFloatButton/>
+            <Footer />
         </div>
     );
 }

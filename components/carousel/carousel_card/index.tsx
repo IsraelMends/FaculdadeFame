@@ -4,19 +4,23 @@ import Image from "next/image";
 interface CarouselCardProps {
     alt: string
     src: string
+    title: string
 }
 
-export function CarouselCard(image: CarouselCardProps) {
+export function CarouselCard(props: CarouselCardProps) {
     return (
         <CarouselCardContainer>
             <div className="w-full h-full relative">
                 <Image
-                    alt={image.alt}
-                    src={image.src}
+                    alt={props.alt}
+                    src={props.src}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-b-md"
                     sizes="144px"
                 />
+            </div>
+            <div className="w-full flex flex-col p-2">
+                <h1 className="text-gray-500 text-center hover:text-black font-semibold">{props.title}</h1>
             </div>
         </CarouselCardContainer>
     )

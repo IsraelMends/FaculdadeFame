@@ -3,7 +3,7 @@ import {EmblaViewportRefType} from "embla-carousel-react";
 
 interface CarouselCardSectionContainerProps {
     children: ReactNode;
-    ref: EmblaViewportRefType
+    ref?: EmblaViewportRefType
 }
 
 export function CarouselCardSectionContainer({children, ref}: CarouselCardSectionContainerProps) {
