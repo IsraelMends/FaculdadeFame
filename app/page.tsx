@@ -14,8 +14,8 @@ export default function Home() {
             <About/>
             <Carousel/>
             <ContactForm />
-            <WhatsAppFloatButton/>
             <Footer />
+            <WhatsAppFloatButton/>
         </div>
     );
 }

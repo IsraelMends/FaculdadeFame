@@ -148,13 +148,13 @@ export function About() {
                         onClick={() => emblaApi?.scrollPrev()}
                         className="text-2xl hover:scale-125 transition"
                     >
-                        <ArrowBigLeft className="text-[#0e6b5b] h-8 w-8"/>
+                        <ArrowBigLeft className="text-gray-700 h-8 w-8"/>
                     </button>
                     <button
                         onClick={() => emblaApi?.scrollNext()}
                         className="text-2xl hover:scale-125 transition"
                     >
-                        <ArrowBigRight className="text-[#0e6b5b] h-8 w-8"/>
+                        <ArrowBigRight className="text-gray-700 h-8 w-8"/>
                     </button>
                 </div>
             </div>
