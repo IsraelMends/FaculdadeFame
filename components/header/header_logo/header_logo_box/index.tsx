@@ -1,3 +1,4 @@
+import {ReactNode} from "react";
 
 export function HeaderLogoBox({children}: {children: ReactNode}) {
     return (

@@ -8,7 +8,7 @@ interface CarouselCardSectionContainerProps {
 
 export function CarouselCardSectionContainer({children, ref}: CarouselCardSectionContainerProps) {
     return (
-        <div className="overflow-hidden w-8/12 py-5 touch-auto" ref={ref}>
+        <div className="w-8/12 py-5 touch-auto" ref={ref}>
             {children}
         </div>
     );

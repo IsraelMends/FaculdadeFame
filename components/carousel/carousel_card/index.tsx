@@ -10,14 +10,13 @@ interface CarouselCardProps {
 export function CarouselCard(props: CarouselCardProps) {
     return (
         <CarouselCardContainer>
-            <div className="w-full h-full relative">
-                <Image
-                    alt={props.alt}
-                    src={props.src}
-                    fill
-                    className="object-cover rounded-b-md"
-                    sizes="144px"
-                />
+            <div className="w-full h-full relative flex items-center justify-center">
+                    <Image
+                        alt={props.alt}
+                        src={props.src}
+                        fill
+                        className="object-contain rounded-b-md"
+                    />
             </div>
             <div className="w-full flex flex-col p-2">
                 <h1 className="text-gray-500 text-center hover:text-black font-semibold">{props.title}</h1>
