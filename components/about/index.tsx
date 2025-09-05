@@ -16,7 +16,7 @@ export function About() {
         Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
     );
 
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay.current]);
+    const [emblaRef, emblaApi] = useEmblaCarousel({  loop: true }, [autoplay.current]);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const scrollTo = (index: number) => {

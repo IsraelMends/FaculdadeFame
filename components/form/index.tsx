@@ -23,7 +23,7 @@ export function ContactForm() {
     }
 
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50" id="contato">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                 {/* Imagem */}
                 <div className="flex justify-center relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">

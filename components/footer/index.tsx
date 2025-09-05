@@ -18,15 +18,15 @@ export function Footer() {
                 <div className="mt-8 grid gap-4 text-center sm:grid-cols-3">
                     <div>
                         <h4 className="font-semibold text-white mb-1">📍 Endereço</h4>
-                        <p>Rua Exemplo, 123 - Belo Horizonte/MG</p>
+                        <p>Rua rio doce - 50 Coronel Fabriciano/MG</p>
                     </div>
                     <div>
                         <h4 className="font-semibold text-white mb-1">📞 Telefone</h4>
-                        <p>(31) 99999-9999</p>
+                        <p>+55 31 9354-7329</p>
                     </div>
                     <div>
                         <h4 className="font-semibold text-white mb-1">📧 E-mail</h4>
-                        <p>contato@seudominio.com</p>
+                        <p>secretariaiguacu@faculdadeiguacu.edu.br</p>
                     </div>
                 </div>
 

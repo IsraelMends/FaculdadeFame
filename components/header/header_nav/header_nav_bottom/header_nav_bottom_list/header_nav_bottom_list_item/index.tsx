@@ -2,15 +2,16 @@ import {ReactNode} from "react";
 
 export interface HeaderNavBottomListItemProps {
     title: string,
-    img: ReactNode
+    img: ReactNode,
+    href: string,
 }
 
-export function HeaderNavBottomListItem({img, title}: HeaderNavBottomListItemProps) {
+export function HeaderNavBottomListItem({img, title, href}: HeaderNavBottomListItemProps) {
     return (
         // text-(var(--black-green))
-        <span className="font-medium  text-white cursor-pointer hover:text-white/90  flex gap-2 justify-center">
+        <a className="font-medium  text-white cursor-pointer hover:text-white/90  flex gap-2 justify-center" href={`#${href}`}>
             {img}
             {title}
-        </span>
+        </a>
     )
 }
