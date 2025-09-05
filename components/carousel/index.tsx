@@ -1,10 +1,7 @@
 'use client'
 
 import {CarrouselContainer} from "@/components/carousel/carousel_container";
-import {CarrouselTitle} from "@/components/carousel/carousel_title";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import {useCallback, useRef} from "react";
+import {CarrouselTitle} from "@/components/carousel/carousel_title";;
 import {CarouselCardSectionContainer} from "@/components/carousel/carousel_card_section_container";
 import {CarouselCard} from "@/components/carousel/carousel_card";
 
@@ -17,22 +14,6 @@ export function Carousel() {
         {src: "/uniminas.png", alt: "Logo 5", title: "Uniminas"},
         {src: "/univitoria.jpeg", alt: "Logo 5", title: "Univitoria"},
     ];
-
-    const autoplay = useRef(
-        Autoplay({
-            delay: 2000,
-            playOnInit: true,
-            stopOnInteraction: false,
-            stopOnMouseEnter: false
-        })
-    );
-
-    const [emblaRef, emblaApi] = useEmblaCarousel(
-        {loop: true},
-        [autoplay.current]
-    );
-
-    const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
     return (
         <CarrouselContainer>
