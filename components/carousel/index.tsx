@@ -8,11 +8,9 @@ import {CarouselCard} from "@/components/carousel/carousel_card";
 export function Carousel() {
     const slideImages = [
         {src: "/global2.png", alt: "Logo 1", title: "Global"},
-        {src: "/Educa+.png", alt: "Logo 2", title: "Educa+"},
+        {src: "/Educavale.png", alt: "Logo 2", title: "EducaVale"},
         {src: "/EDUCAMINAS.png", alt: "Logo 3", title: "Educa Minas"},
         {src: "/minas+pos.png", alt: "Logo 4", title: "Minas + Pós"},
-        {src: "/uniminas.png", alt: "Logo 5", title: "Uniminas"},
-        {src: "/univitoria.jpeg", alt: "Logo 5", title: "Univitoria"},
     ];
 
     return (
