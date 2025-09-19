@@ -31,14 +31,17 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_KEY }}
+          port: 22
           script: |
             cd sites/FaculdadeFame
             git pull origin main
