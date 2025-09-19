@@ -41,7 +41,11 @@ jobs:
         with:
           host: 31.97.40.222
           username: root
-          key: Rjdigitalmarketingdev@66231#
+          key: b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+            QyNTUxOQAAACAj9xE7rfcHmWLEMdGox4xtx20rTQp5haw0YSeSmtUI4wAAAKBGBZKIRgWS
+            iAAAAAtzc2gtZWQyNTUxOQAAACAj9xE7rfcHmWLEMdGox4xtx20rTQp5haw0YSeSmtUI4w
+            AAAEA3rOBWdgFLH3GBp0L3L/PN2bvMGFxtz3Jj5Gsswh5hhSP3ETut9weZYsQx0ajHjG3H
+            bStNCnmFrDRhJ5Ka1QjjAAAAHWZlbGlwZTUyNC5mZXJuYW5kZXNAZ21haWwuY29t
           port: 22
           script: |
             cd sites/FaculdadeFame
