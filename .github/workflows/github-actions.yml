@@ -1,37 +1,37 @@
-  name: Faculdade Fame
+name: Faculdade Fame
 
-  on:
-    push:
-      branches:
-        - "main"
+on:
+  push:
+    branches:
+      - "main"
 
-  jobs:
-    build:
-      runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Verificando o repositorio
-          uses: actions/checkout@v3
+    steps:
+      - name: Verificando o repositorio
+        uses: actions/checkout@v3
 
-        - name: Setup NodeJS
-          uses: actions/setup-node@v3
-          with:
-            node-version: 20
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-        - name: Setup PNPM
-          uses: pnpm/action-setup@v2
-          with:
-            version: 9
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
 
-        - name: Instalando dependencias
-          run: pnpm install
+      - name: Instalando dependencias
+        run: pnpm install
 
-        - name: Rodando build do projeto
-          run: pnpm run build
+      - name: Rodando build do projeto
+        run: pnpm run build
 
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
         - name: Checkout code
           uses: actions/checkout@v3
 
