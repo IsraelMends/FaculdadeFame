@@ -30,21 +30,22 @@ jobs:
         run: pnpm run build
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-        - name: Deploy to VPS via SSH
-          uses: appleboy/ssh-action@v1.0.3
-          with:
-            host: ${{ secrets.VPS_HOST }}
-            username: ${{ secrets.VPS_USERNAME }}
-            key: ${{ secrets.VPS_KEY }}
-            port: 22
-            script: |
-              cd sites/FaculdadeFame
-              git pull origin main
-              pnpm install --prod
-              pnpm run build
-              pm2 restart 17
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_KEY }}
+          port: 22
+          script: |
+            cd sites/FaculdadeFame
+            git pull origin main
+            pnpm install --prod
+            pnpm run build
+            pm2 restart 17
