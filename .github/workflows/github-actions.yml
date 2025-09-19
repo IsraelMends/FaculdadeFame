@@ -39,9 +39,9 @@ jobs:
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_KEY }}
+          host: 31.97.40.222
+          username: root
+          key: Rjdigitalmarketingdev@66231#
           port: 22
           script: |
             cd sites/FaculdadeFame
