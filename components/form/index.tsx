@@ -55,6 +55,7 @@ export function ContactForm() {
                             <input
                                 type="text"
                                 name="nome"
+                                placeholder="Nome"
                                 value={formData.nome}
                                 onChange={handleChange}
                                 required
@@ -71,6 +72,7 @@ export function ContactForm() {
                             <input
                                 type="tel"
                                 name="telefone"
+                                placeholder="(XX) XXXXX-XXXX"
                                 value={formData.telefone}
                                 onChange={handleChange}
                                 required
@@ -87,6 +89,7 @@ export function ContactForm() {
                             <input
                                 type="email"
                                 name="email"
+                                placeholder="email@dominio.com"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
