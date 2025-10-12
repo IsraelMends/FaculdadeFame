@@ -5,7 +5,7 @@ import { BannerFloatButton } from "@/components/banner/banner_image/banner_float
 export function BannerFloat() {
   return (
     <BannerFloatContainer>
-      <div className="flex flex-col items-center md:items-start gap-6 md:gap-8 px-6 sm:px-8 md:px-12 lg:px-20 py-12 md:py-20 text-white bg-black/40 rounded-2xl backdrop-blur-sm">
+      <div className="flex flex-col items-center md:items-start gap-6 md:gap-8 px-6 sm:px-8 md:px-12 lg:px-20 py-12 md:py-20 text-white rounded-2xl">
 
         <BannerFloatText className="text-3xl sm:text-4xl md:text-5xl font-bold text-center md:text-left leading-tight">
           Faculdade Mineira de Educação EAD
