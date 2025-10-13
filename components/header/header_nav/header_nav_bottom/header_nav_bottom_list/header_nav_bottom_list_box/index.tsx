@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 export function HeaderNavBottomListBox({
     children,
-    className,
 }: {
     children: ReactNode;
     className?: string;
