@@ -22,7 +22,7 @@ export function Footer() {
                     </div>
                     <div>
                         <h4 className="font-semibold text-white mb-1">📞 Telefone</h4>
-                        <p>+55 31 9286-1072</p>
+                        <p>+55 31 7328-6995</p>
                     </div>
                     {/* <div>
                         <h4 className="font-semibold text-white mb-1">📧 E-mail</h4>
