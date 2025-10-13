@@ -96,7 +96,7 @@ export function About() {
                 },
             },
             img: {
-                src: "/about/teacher.jpg",
+                src: "/about/teacher.webp",
                 alt: "Professor da FAME",
             },
         },
