@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export function HeaderLogoImage() {
     return (
-        <div className="w-11/12 h-11/12 relative flex justify-center items-center">
-            <Image
-                src="/header_logo.png"
-                alt="Logo da faculdade"
-                className="object-cover"
-                fill
-                priority
-            />
-        </div>
-    )
+        <Image
+            src="/header_logo.png"
+            alt="Logo"
+            width={480}
+            height={144}
+            priority
+            sizes="(max-width: 768px) 160px, (max-width: 1280px) 280px, 320px"
+            className="h-10 w-auto md:h-16 lg:h-20 xl:h-24"
+        />
+    );
 }
