@@ -47,8 +47,6 @@ export default function ContactForm() {
             })
 
             alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
-
-            // sucesso tratado com alert; caso queira, exiba um banner/estado aqui
         } catch (error) {
             console.error("Erro ao enviar a solicitação:", error)
             const errorMessage = error instanceof Error ? error.message : "Ocorreu um erro. Tente novamente mais tarde."
