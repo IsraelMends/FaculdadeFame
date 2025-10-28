@@ -6,7 +6,6 @@ import Image from "next/image"
 
 export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [isSuccess, setIsSuccess] = useState(false)
     const [formData, setFormData] = useState({
         nome: "",
         telefone: "",
@@ -40,7 +39,6 @@ export default function ContactForm() {
 
             if (!response.ok) throw new Error('Falha ao enviar os dados para o Integrately')
 
-            setIsSuccess(true)
             setFormData({
                 nome: "",
                 telefone: "",
@@ -50,7 +48,7 @@ export default function ContactForm() {
 
             alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
 
-            setTimeout(() => setIsSuccess(false), 3000)
+            // sucesso tratado com alert; caso queira, exiba um banner/estado aqui
         } catch (error) {
             console.error("Erro ao enviar a solicitação:", error)
             const errorMessage = error instanceof Error ? error.message : "Ocorreu um erro. Tente novamente mais tarde."
