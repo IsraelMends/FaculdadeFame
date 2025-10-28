@@ -4,22 +4,60 @@ import { useState } from "react"
 import { User, Phone, Mail } from "lucide-react"
 import Image from "next/image"
 
-export function ContactForm() {
+export default function ContactForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
     const [formData, setFormData] = useState({
         nome: "",
         telefone: "",
         email: "",
-        graduado: "não",
+        graduado: "sim",
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log(formData)
-        alert("Formulário enviado com sucesso!")
+    const handleSubmitForm = async (e?: React.FormEvent) => {
+        if (e) e.preventDefault()
+        setIsSubmitting(true)
+
+        const INTEGRATELY_WEBHOOK_URL = 'https://webhooks.integrately.com/a/webhooks/1e8386991e5e4a6c9e0ea500919dce19'
+
+        try {
+            const apiData = {
+                fullName: formData.nome,
+                email: formData.email,
+                phone: formData.telefone,
+                graduado: formData.graduado || "",
+            }
+
+            const response = await fetch(INTEGRATELY_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(apiData),
+            })
+
+            if (!response.ok) throw new Error('Falha ao enviar os dados para o Integrately')
+
+            setIsSuccess(true)
+            setFormData({
+                nome: "",
+                telefone: "",
+                email: "",
+                graduado: "sim",
+            })
+
+            alert("Solicitação enviada com sucesso! Entraremos em contato em breve.")
+
+            setTimeout(() => setIsSuccess(false), 3000)
+        } catch (error) {
+            console.error("Erro ao enviar a solicitação:", error)
+            const errorMessage = error instanceof Error ? error.message : "Ocorreu um erro. Tente novamente mais tarde."
+            alert("Erro ao enviar a solicitação: " + errorMessage)
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -37,7 +75,7 @@ export function ContactForm() {
 
                 {/* Formulário */}
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmitForm}
                     className="bg-white shadow-2xl rounded-3xl p-12 w-full max-w-2xl mx-auto border border-gray-200"
                 >
                     <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-4">
@@ -115,9 +153,10 @@ export function ContactForm() {
                     {/* Botão */}
                     <button
                         type="submit"
-                        className="w-full bg-gradient-to-r from-gray-600 to-gray-700 text-white py-4 rounded-xl text-lg font-semibold hover:from-gray-700 hover:to-gray-800 transition cursor-pointer"
+                        disabled={isSubmitting}
+                        className="w-full bg-gradient-to-r from-gray-600 to-gray-700 text-white py-4 rounded-xl text-lg font-semibold hover:from-gray-700 hover:to-gray-800 transition cursor-pointer disabled:opacity-50"
                     >
-                        Enviar
+                        {isSubmitting ? "Enviando..." : "Enviar"}
                     </button>
                 </form>
             </div>
