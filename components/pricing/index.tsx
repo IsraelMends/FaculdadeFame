@@ -35,7 +35,7 @@ export function Pricing() {
 
     return (
         <PricingContainer>
-            <PricingTitle title="Valores dos Cursos Técnicos por Competência" />
+            <PricingTitle title="Valores dos Cursos de Pós-Graduação" />
             <PricingDescription description="Escolha o plano que melhor se adequa ao seu desenvolvimento profissional. Quanto mais cursos, maior o desconto." />
             <PricingCardsContainer>
                 {pricingCards.map((card, index) => (
