@@ -14,16 +14,16 @@ export function PricingCard({ courses, price, installment, isPopular = false }: 
 
     return (
         <div
-            className={`relative flex flex-col h-full transition-all duration-500 ease-out transform ${
-                isPopular ? "md:scale-105" : ""
-            } ${isHovered ? "scale-105 md:scale-110" : "scale-100"}`}
+            className={`relative transition-all duration-500 ease-out transform ${
+                isHovered ? "scale-105" : "scale-100"
+            }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Popular Badge */}
             {isPopular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-4 py-1 rounded-full text-xs md:text-sm font-bold shadow-lg">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
                         Mais Popular
                     </div>
                 </div>
@@ -31,48 +31,50 @@ export function PricingCard({ courses, price, installment, isPopular = false }: 
 
             {/* Card Body */}
             <div
-                className={`flex flex-col h-full p-6 md:p-8 rounded-3xl transition-all duration-500 ${
+                className={`p-6 md:p-7 rounded-2xl transition-all duration-500 h-full ${
                     isPopular
-                        ? "bg-gradient-to-br from-emerald-50 to-cyan-50 border-2 border-emerald-300 shadow-2xl"
-                        : "bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 shadow-lg"
-                } ${isHovered ? "shadow-2xl" : ""}`}
+                        ? "bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-2xl border-0"
+                        : "bg-white border-2 border-gray-200 text-gray-900 shadow-md hover:shadow-xl hover:border-emerald-300"
+                }`}
             >
-                {/* Courses Header */}
-                <div className="mb-8">
-                    <div className={`text-lg md:text-xl font-semibold transition-colors duration-300 ${
-                        isPopular ? "text-emerald-700" : "text-gray-600"
+                {/* Title */}
+                <div className="mb-6">
+                    <div className={`text-sm font-semibold transition-all ${
+                        isPopular ? "text-emerald-100" : "text-gray-500"
                     }`}>
-                        Pacote de
+                        PACOTE
                     </div>
-                    <div className={`text-3xl md:text-4xl font-bold transition-all duration-300 ${
-                        isPopular
-                            ? "text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600"
-                            : "text-gray-900"
+                    <div className={`text-2xl md:text-3xl font-bold mt-1 ${
+                        isPopular ? "text-white" : "text-gray-800"
                     }`}>
                         {courses} {courses === 1 ? "Curso" : "Cursos"}
                     </div>
                 </div>
 
-                {/* Installment Price - Main Focus */}
-                <div className="flex-grow flex flex-col justify-center items-center">
-                    <div className="text-sm text-gray-500 mb-3 font-medium">VALOR PARCELADO</div>
-                    <div className={`text-5xl md:text-6xl font-bold transition-all duration-300 ${
-                        isPopular
-                            ? "text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600"
-                            : "text-emerald-600"
+                {/* Separator */}
+                <div className={`h-px my-6 ${isPopular ? "bg-white/30" : "bg-gray-200"}`}></div>
+
+                {/* Installment Price */}
+                <div className="mb-5">
+                    <div className={`text-xs font-bold tracking-widest transition-all mb-2 ${
+                        isPopular ? "text-emerald-100" : "text-gray-500"
+                    }`}>
+                        VALOR PARCELADO
+                    </div>
+                    <div className={`text-3xl md:text-4xl font-bold transition-all ${
+                        isPopular ? "text-white" : "text-emerald-600"
                     }`}>
                         {installment}
                     </div>
                 </div>
 
-                {/* Total Price - Smaller */}
-                <div className="mt-8 text-center border-t-2 border-gray-200 pt-4">
-                    <div className="text-xs text-gray-500 mb-1">Valor total</div>
-                    <div className={`text-lg md:text-xl font-semibold ${
-                        isPopular ? "text-emerald-600" : "text-gray-700"
-                    }`}>
-                        {price}
-                    </div>
+                {/* Total Price */}
+                <div className={`text-xs transition-all ${
+                    isPopular ? "text-emerald-100" : "text-gray-500"
+                }`}>
+                    Total: <span className={`font-bold ${
+                        isPopular ? "text-white" : "text-gray-700"
+                    }`}>{price}</span>
                 </div>
             </div>
         </div>
