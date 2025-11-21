@@ -39,7 +39,7 @@ export function Pricing() {
             <PricingDescription description="Escolha o plano que melhor se adequa ao seu desenvolvimento profissional. Quanto mais cursos, maior o desconto." />
             <PricingCardsContainer>
                 {pricingCards.map((card, index) => (
-                    <PricingCard key={index} {...card} />
+                    <PricingCard key={index} {...card} isPopular={index === 2} />
                 ))}
             </PricingCardsContainer>
         </PricingContainer>
