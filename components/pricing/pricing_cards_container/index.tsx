@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, Children } from "react";
 
 interface PricingCardsContainerProps {
     children: ReactNode;
 }
 
 export function PricingCardsContainer({ children }: PricingCardsContainerProps) {
-    const childrenArray = Array.isArray(children) ? children : [children];
+    const childrenArray = Children.toArray(children);
     const topCards = childrenArray.slice(0, 3);
     const bottomCards = childrenArray.slice(3, 5);
 
