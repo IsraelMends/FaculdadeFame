@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
 
 export interface PricingCardProps {
     courses: number;
@@ -12,13 +11,6 @@ export interface PricingCardProps {
 
 export function PricingCard({ courses, price, installment, isPopular = false }: PricingCardProps) {
     const [isHovered, setIsHovered] = useState(false);
-
-    const benefits = [
-        "Acesso imediato",
-        "Certificado MEC",
-        "Suporte dedicado",
-        "Materiais atualizados"
-    ];
 
     return (
         <div
@@ -46,7 +38,7 @@ export function PricingCard({ courses, price, installment, isPopular = false }: 
                 } ${isHovered ? "shadow-2xl" : ""}`}
             >
                 {/* Courses Header */}
-                <div className="mb-6">
+                <div className="mb-8">
                     <div className={`text-lg md:text-xl font-semibold transition-colors duration-300 ${
                         isPopular ? "text-emerald-700" : "text-gray-600"
                     }`}>
@@ -61,48 +53,27 @@ export function PricingCard({ courses, price, installment, isPopular = false }: 
                     </div>
                 </div>
 
-                {/* Price Section */}
-                <div className="mb-8 pb-8 border-b-2 border-gray-200">
-                    <div className="text-sm text-gray-500 mb-2">Valor Total</div>
-                    <div className={`text-4xl md:text-5xl font-bold transition-all duration-300 mb-3 ${
+                {/* Installment Price - Main Focus */}
+                <div className="flex-grow flex flex-col justify-center items-center">
+                    <div className="text-sm text-gray-500 mb-3 font-medium">VALOR PARCELADO</div>
+                    <div className={`text-5xl md:text-6xl font-bold transition-all duration-300 ${
                         isPopular
                             ? "text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600"
                             : "text-emerald-600"
                     }`}>
+                        {installment}
+                    </div>
+                </div>
+
+                {/* Total Price - Smaller */}
+                <div className="mt-8 text-center border-t-2 border-gray-200 pt-4">
+                    <div className="text-xs text-gray-500 mb-1">Valor total</div>
+                    <div className={`text-lg md:text-xl font-semibold ${
+                        isPopular ? "text-emerald-600" : "text-gray-700"
+                    }`}>
                         {price}
                     </div>
-                    <div className="text-sm md:text-base text-gray-600 font-medium">
-                        📅 {installment}
-                    </div>
                 </div>
-
-                {/* Benefits List */}
-                <div className="mb-8 flex-grow">
-                    <div className="text-sm font-semibold text-gray-700 mb-4">O que inclui:</div>
-                    <ul className="space-y-3">
-                        {benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-center gap-3 text-sm text-gray-600">
-                                <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
-                                    isPopular ? "bg-emerald-500" : "bg-gray-300"
-                                }`}>
-                                    <Check className="w-3 h-3 text-white" />
-                                </div>
-                                <span>{benefit}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                {/* CTA Button */}
-                <button
-                    className={`w-full py-3 md:py-4 px-4 rounded-xl font-semibold transition-all duration-300 text-white transform active:scale-95 ${
-                        isPopular
-                            ? "bg-gradient-to-r from-emerald-600 to-cyan-600 hover:shadow-lg hover:from-emerald-700 hover:to-cyan-700"
-                            : "bg-gradient-to-r from-gray-800 to-gray-700 hover:shadow-lg hover:from-gray-900 hover:to-gray-800"
-                    } ${isHovered ? "shadow-lg" : ""}`}
-                >
-                    Matricule-se Agora
-                </button>
             </div>
         </div>
     );
