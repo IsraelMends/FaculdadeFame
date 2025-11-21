@@ -5,6 +5,7 @@ import { Banner } from "@/components/banner";
 //import { WhatsAppFloatButton } from "@/components/whatsapp_float_button";
 import ContactForm from "@/components/form";
 import { About } from "@/components/about";
+import { Pricing } from "@/components/pricing";
 import { Footer } from "@/components/footer";
 export default function Home() {
     return (
@@ -12,6 +13,7 @@ export default function Home() {
             <Header />
             <Banner />
             <About />
+            <Pricing />
             <ContactForm />
             <Footer />
             {/* <WhatsAppFloatButton /> */}
