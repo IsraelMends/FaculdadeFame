@@ -28,8 +28,8 @@ export function Pricing() {
         },
         {
             courses: 5,
-            price: "R$ 7.999,90",
-            installment: "12X R$ 666,67",
+            price: "R$ 6.999,90",
+            installment: "12X R$ 583,33",
         },
     ];
 
